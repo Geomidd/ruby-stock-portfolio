@@ -1,5 +1,3 @@
 <h1>Stocking</h1>
-<p>This is a Rails app for stock portfolios</p>
-<% stock = StockQuote::Stock.quote("fb") %>
-<%= stock.company_name %>
-<%= stock.latest_price %>
+<%= render 'home/ticker_form' %>
+<%= turbo_frame_tag 'ticker_data' %>
