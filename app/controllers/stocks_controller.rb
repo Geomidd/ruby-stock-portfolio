@@ -1,9 +1,11 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /stocks or /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = Stock.where("user_id = ?", current_user).all
   end
 
   # GET /stocks/1 or /stocks/1.json
@@ -55,6 +57,11 @@ class StocksController < ApplicationController
       format.html { redirect_to stocks_url, notice: "Stock was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @ticker = current_user.stocks.find_by(id: params[:id])
+    redirect_to stocks_path, alert: "Not Authorized to #{action_name} this stock" if @ticker.nil?
   end
 
   private
