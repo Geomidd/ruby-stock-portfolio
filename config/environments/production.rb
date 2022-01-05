@@ -93,5 +93,5 @@ Rails.application.configure do
 
   # Devise Configs
   # TODO: Update host once value is known
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'warm-ridge-85401.herokuapp.com' }
 end
