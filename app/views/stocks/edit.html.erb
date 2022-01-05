@@ -1,10 +1,16 @@
-<h1>Editing stock</h1>
-
-<%= render "form", stock: @stock %>
-
-<br>
-
-<div>
-  <%= link_to "Show this stock", @stock %> |
-  <%= link_to "Back to stocks", stocks_path %>
+<div class="card col-4 mx-auto">
+  <div class="card-body">
+    <div class="card-title fs-2">Edit Stock</div>
+    <div class="card-text">
+      <%= render "form", stock: @stock %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="row mx-auto">
+      <%= link_to "Cancel Edit", @stock, class: "col btn btn-outline-secondary" %>
+    </div>
+    <div class="row">
+      <%= link_to "Back to stocks", stocks_path, class: 'btn btn-link col' %>
+    </div>
+  </div>
 </div>

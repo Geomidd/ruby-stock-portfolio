@@ -1,6 +1,14 @@
-<%= render @stock %>
-<div>
-  <%= link_to "Edit this stock", edit_stock_path(@stock) %> |
-  <%= link_to "Back to stocks", stocks_path %>
-  <%= button_to "Destroy this stock", @stock, method: :delete %>
+<div class="card col-4 mx-auto">
+  <div class="card-body">
+    <%= render @stock %>
+  </div>
+  <div class="card-footer">
+    <div class="row mx-auto">
+      <%= link_to "Edit", edit_stock_path(@stock), class: "col btn btn-outline-primary" %>
+      <%= button_to "Delete", @stock, method: :delete, class: "btn btn-outline-danger w-100", form_class: "col" %>
+    </div>
+    <div class="row">
+      <%= link_to "Back to stocks", stocks_path, class: 'btn btn-link col' %>
+    </div>
+  </div>
 </div>

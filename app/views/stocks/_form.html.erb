@@ -9,14 +9,14 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :ticker, style: "display: block" %>
-    <%= form.text_field :ticker %>
+  <div class="mb-3">
+    <%= form.label :ticker, class: "form-label" %>
+    <%= form.text_field :ticker, class: "form-control" %>
   </div>
   <div>
     <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary w-100" %>
   </div>
 <% end %>

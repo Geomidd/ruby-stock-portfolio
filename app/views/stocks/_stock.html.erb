@@ -3,9 +3,11 @@
   <% @stock_data = @results['data'] %>
   <% @error = @results['error'] %>
   <% if @stock_data %>
-    <div><%=@stock_data.company_name%></div>
-    <div><%=@stock_data.symbol%></div>
-    <div><%=@stock_data.latest_price%></div>
+    <div class="card-title fs-2"><%= @stock_data.company_name %></div>
+    <div><span class="fw-bold">Symbol:</span> <%= @stock_data.symbol %></div>
+    <div><span class="fw-bold">Current Price:</span> $<%= number_with_precision(@stock_data.latest_price, :precision => 2, :delimiter => ",") %></div>
+    <div><span class="fw-bold">Previous Close:</span> $<%= number_with_precision(@stock_data.previous_close, :precision => 2, :delimiter => ",") %></div>
+    <div><span class="fw-bold">Market Cap:</span> $<%= number_with_precision(@stock_data.market_cap, :precision => 0, :delimiter => ",") %></div>
   <% else %>
     <div><%= @error %></div>
   <% end %>
