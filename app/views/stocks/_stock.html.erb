@@ -2,26 +2,11 @@
   <% @results = get_stock_data(stock) %>
   <% @stock_data = @results['data'] %>
   <% @error = @results['error'] %>
-  <tr class="<%= @error != nil ? 'table-danger' : '' %>">
-    <% if @stock_data %>
-      <td>
-        <%= @stock_data.symbol %>
-      </td>
-      <td>
-        <%= @stock_data.company_name %>
-      </td>
-      <td>
-        $<%= number_with_precision(@stock_data.latest_price, :precision => 2, :delimiter => ",") %>
-      </td>
-    <% else %>
-      <td colspan="3">
-        <%= @error %>
-      </td>
-    <% end %>
-    <td>
-      <%= link_to "Show this stock", stock, class: "btn btn-outline-primary btn-sm" %>
-      <%= link_to "Edit this stock", edit_stock_path(stock.id), class: "btn btn-outline-secondary btn-sm" %>
-      <%= button_to "Delete this stock", stock, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm", form_class: "d-inline" %>
-    </td>
-  </tr>
+  <% if @stock_data %>
+    <div><%=@stock_data.company_name%></div>
+    <div><%=@stock_data.symbol%></div>
+    <div><%=@stock_data.latest_price%></div>
+  <% else %>
+    <div><%= @error %></div>
+  <% end %>
 </div>

@@ -1,17 +1,18 @@
 <h1>Stocks</h1>
 <div id="stocks">
-  <table class="table table-secondary table-striped table-hover">
+  <table class="table table-secondary table-striped table-bordered table-hover">
     <thead>
       <tr class="table-dark">
         <th>Ticker</th>
         <th>Company Name</th>
         <th>Current Price</th>
+        <th>Market Cap</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @stocks.each do |stock| %>
-        <%= render stock %>
+        <%= render 'stock_row', stock: stock %>
       <% end %>
     </tbody>
   </table>
